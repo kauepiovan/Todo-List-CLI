@@ -9,7 +9,8 @@ def view(todo_list):
 
     for task in todo_list:
         c += 1
-        print(c, task[0])
+        check = '✔' if task[1] else ' '
+        print(c, f'[{check}] {task[0]}')
 
     return None
 
@@ -17,22 +18,23 @@ def view(todo_list):
 # add task
 def add(task_name, todo_list):
 
-    todo_list.append([f'- [ ] {task_name}', False])
+    todo_list.append([task_name, False])
 
     return None
 
 
 # remove task
 def remove(task_name, todo_list):
-    
-    flag = True
+
+    flag = True # flag para verificar se o usuario digitou corretamente
+
+    # caso o usuario digite o indice da task
     if task_name.isdigit():
         index = int(task_name) - 1
         todo_list.pop(index)
         flag = False
-
+    # caso o usuario digite o nome da task
     elif isinstance(task_name, str):
-        task_name = f'- [ ] {task_name}'
         for i in todo_list:
             if task_name in i:
                 todo_list.remove(i)
@@ -42,14 +44,44 @@ def remove(task_name, todo_list):
                 continue
     if flag:
         print('Erro digite o indice ou o nome de uma tarefa existente.')
-        input('Aperte enter para continuar.')      
+        input('Aperte enter para continuar.')
 
     return None
 
 
 # update task
-def update():
-    ...
+def update(task_name, todo_list):
+
+    flag = True # flag para verificar se o usuario digitou corretamente
+
+    # caso o usuario digite o indice da task
+    if task_name.isdigit():
+        index = int(task_name) - 1
+        if todo_list[index][1] == False:
+            todo_list[index][1] = True
+            flag = False
+        else:
+            todo_list[index][1] = False
+            flag = False
+    # caso o usuario digite o nome da task
+    elif isinstance(task_name, str):
+        for i in todo_list:
+            if task_name in i:
+                if i[1] == False:
+                    i[1] = True
+                    flag = False
+                    break
+                else:
+                    i[1] = False
+                    flag = False
+                    break
+    
+    if flag:
+        print('Erro digite o indice ou o nome de uma tarefa existente.')
+        input('Aperte enter para continuar.')
+
+    return None
+
 # help
 def help():
     ...
