@@ -25,7 +25,7 @@ while True:
 
     elif command == 'remove':
         functions.remove(task_name, todo_list)
-    elif command == 'upd':
-        ...
+    elif command == 'update':
+        functions.update(task_name, todo_list)
     else:
         ...
