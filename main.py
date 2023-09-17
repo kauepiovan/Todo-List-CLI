@@ -23,6 +23,8 @@ while True:
         functions.add(task_name, todo_list)
     elif command == 'remove':
         functions.remove(task_name, todo_list)
+    elif command == 'clearall':
+        functions.clearall(todo_list)
     elif command == 'update':
         functions.update(task_name, todo_list)
     elif command == 'ihelp':

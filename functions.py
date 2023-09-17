@@ -7,7 +7,7 @@ def view(todo_list):
     if len(todo_list) == 0:
         os.system('cls')
         print('-'*20, 'ToDo-List python', '-'*20)
-        print('Nenhuma tarefa existente. use o comando add para adicionar uma tarefa.')
+        print('\nNenhuma tarefa encontrada. use o comando add para adicionar uma tarefa\nCaso tenha duvida digite ihelp.')
         input('Aperte enter para continuar.')
     
     os.system('cls')
@@ -56,6 +56,15 @@ def remove(task_name, todo_list):
     return None
 
 
+# remove todos os itens da lista
+def clearall(todo_list):
+    todo_list.clear()
+    os.system('cls')
+    print('Itens removidos com sucesso.')
+    input('Aperte enter para continuar.')
+    return None
+
+
 # update task
 def update(task_name, todo_list):
 
@@ -89,6 +98,7 @@ def update(task_name, todo_list):
 
     return None
 
+
 # help
 def ihelp():
     print(
@@ -106,6 +116,9 @@ def ihelp():
     update <nome da tarefa> 
     ou 
     remove <indice da tarefa>
+
+    Remover todos os itens:
+    clearall
 
 ''')
     input('Aperte enter para continuar')
