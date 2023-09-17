@@ -5,7 +5,6 @@ user_input = user_input_split = ''
 command = task_name = ''
 
 while True:
-
     # Mostra na tela todas as task adicionadas
     functions.view(todo_list)
     
@@ -22,10 +21,13 @@ while True:
     # seleciona o comando desejado pelo usuario
     if command == 'add':
         functions.add(task_name, todo_list)
-
     elif command == 'remove':
         functions.remove(task_name, todo_list)
     elif command == 'update':
         functions.update(task_name, todo_list)
+    elif command == 'ihelp':
+        functions.ihelp()
     else:
-        ...
+        print('Erro. comando não indentificado!')
+        print('Duvidas digite o comando ihelp.')
+        input('aperte enter para continuar.')

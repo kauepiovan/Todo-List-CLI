@@ -4,9 +4,16 @@ import os
 
 # view task
 def view(todo_list):
+    if len(todo_list) == 0:
+        os.system('cls')
+        print('-'*20, 'ToDo-List python', '-'*20)
+        print('Nenhuma tarefa existente. use o comando add para adicionar uma tarefa.')
+        input('Aperte enter para continuar.')
+    
     os.system('cls')
     c = 0
 
+    print('-'*20, 'ToDo-List python', '-'*20)
     for task in todo_list:
         c += 1
         check = '✔' if task[1] else ' '
@@ -83,5 +90,22 @@ def update(task_name, todo_list):
     return None
 
 # help
-def help():
-    ...
+def ihelp():
+    print(
+'''
+
+    adicionar uma tarefa:
+    add <nome da tarefa>
+
+    remover uma tarefa:
+    remove <nome da tarefa> 
+    ou 
+    remove <indice da tarefa>
+
+    atualizar uma tarefa:
+    update <nome da tarefa> 
+    ou 
+    remove <indice da tarefa>
+
+''')
+    input('Aperte enter para continuar')
