@@ -2,7 +2,7 @@ import functions
 
 todo_list = []
 user_input = user_input_split = ''
-command = task_name = ''
+command = task_name = '' 
 
 while True:
     # Mostra na tela todas as task adicionadas
@@ -29,7 +29,11 @@ while True:
         functions.update(task_name, todo_list)
     elif command == 'ihelp':
         functions.ihelp()
+    elif command == 'exit':
+        break
     else:
         print('Erro. comando não indentificado!')
         print('Duvidas digite o comando ihelp.')
         input('aperte enter para continuar.')
+
+print('programa finalizado.')
