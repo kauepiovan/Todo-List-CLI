@@ -103,21 +103,21 @@ def ihelp():
     print(
 '''
 
-    adicionar uma tarefa:
-    add <nome da tarefa>
+    -adicionar uma tarefa:
+        add <nome da tarefa>
 
-    remover uma tarefa:
-    remove <nome da tarefa> 
-    ou 
-    remove <indice da tarefa>
+    -remover uma tarefa:
+        remove <nome da tarefa> 
+        ou 
+        remove <indice da tarefa>
 
-    atualizar uma tarefa:
-    update <nome da tarefa> 
-    ou 
-    remove <indice da tarefa>
+    -atualizar uma tarefa:
+        update <nome da tarefa> 
+        ou 
+        remove <indice da tarefa>
 
-    Remover todos os itens:
-    clearall
+    -Remover todos os itens:
+        clearall
 
 ''')
     input('Aperte enter para continuar')
