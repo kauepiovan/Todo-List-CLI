@@ -1,5 +1,5 @@
 import os
-
+import main
 
 # view task
 def view(todo_list):
@@ -122,3 +122,6 @@ def ihelp():
 ''')
     input('Aperte enter para continuar')
  
+
+def quit():
+    exit()
