@@ -10,6 +10,7 @@ def main():
         'clearall': functions.clearall,
         'update': functions.update,
         'ihelp': functions.ihelp,
+        'save': functions.save,
         'quit': functions.quit,
  
     }
@@ -39,7 +40,7 @@ def main():
         selected_function = selector_function.get(command)
 
         if selected_function:
-            if command == 'clearall':
+            if command == 'clearall' or command == 'save':
                 selected_function(todo_list)
             elif command == 'exit' or command == 'ihelp' or command == 'quit':
                 selected_function()
