@@ -124,7 +124,6 @@ def ihelp():
  
 def save(todo_list):
     lista = [i[0] + '\n' for i in todo_list]
-    # lista = [i + '\n' for i in lista]
     arquivo = open('todolist.txt', 'w')
     arquivo.writelines(lista)
 
