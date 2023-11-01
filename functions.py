@@ -1,5 +1,4 @@
 import os
-import main
 
 # view task
 def view(todo_list):
@@ -7,12 +6,13 @@ def view(todo_list):
         os.system('cls')
         print('-'*20, 'ToDo-List python', '-'*20)
         print('\nNenhuma tarefa encontrada. use o comando add para adicionar uma tarefa\nCaso tenha duvida digite ihelp.')
-        input('Aperte enter para continuar.')
-    
-    os.system('cls')
-    c = 0
 
+        os.system('pause')
+    os.system('cls')
+    
+    c = 0
     print('-'*20, 'ToDo-List python', '-'*20)
+    
     for task in todo_list:
         c += 1
         check = '✔' if task[1] else ' '
@@ -50,7 +50,7 @@ def remove(task_name, todo_list):
                 continue
     if flag:
         print('Erro digite o indice ou o nome de uma tarefa existente.')
-        input('Aperte enter para continuar.')
+        os.system('pause')
 
     return None
 
@@ -60,7 +60,7 @@ def clearall(todo_list):
     todo_list.clear()
     os.system('cls')
     print('Itens removidos com sucesso.')
-    input('Aperte enter para continuar.')
+    os.system('pause')
     return None
 
 
@@ -93,7 +93,7 @@ def update(task_name, todo_list):
     
     if flag:
         print('Erro digite o indice ou o nome de uma tarefa existente.')
-        input('Aperte enter para continuar.')
+        os.system('pause')
 
     return None
 
@@ -119,13 +119,44 @@ def ihelp():
     -Remover todos os itens:
         clearall
 
+    -Ler um arquivo todolist:
+        read <path do arquivo>
+    
+    -Salvar um arquivo todolist feito:
+        save
+
 ''')
     input('Aperte enter para continuar')
- 
+
+
 def save(todo_list):
-    lista = [i[0] + '\n' for i in todo_list]
-    arquivo = open('todolist.txt', 'w')
-    arquivo.writelines(lista)
+    new_todo_list = [[i, j + '\n'] for i, j in todo_list]
+    file = open('todolist1.txt', 'w')
+
+    for i, j in new_todo_list:
+        file.writelines(f'{i}, {j}')
+
+
+def read(file_path):
+    todo_list = []
+
+    file = open(file_path, 'r')
+
+    for i in file:
+    
+        line = i
+        child_list = line.split(',')
+        child_list[1] = child_list[1].replace('\n', '').replace(' ', '')
+    
+        if child_list[1] == 'False':
+            child_list[1] = False
+        else:
+            child_list[1] = True
+
+        todo_list.append(child_list)
+
+    return todo_list
+
 
 def quit():
     exit()
